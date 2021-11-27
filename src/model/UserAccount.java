@@ -3,17 +3,20 @@ package model;
 public class UserAccount {
 
 	private String username;
+	private String passwd;	
 	private String gender;
 	private String career;
 	private String birthday;
 	private String browser;
+	private String photo;
 	
-	public UserAccount(String username, String gender, String career, String birthday, String browser) {
+	public UserAccount(String username, String passwd, String gender, String career, String birthday, String browser, String photo) {
 		this.username = username;
 		this.gender = gender;
 		this.career = career;
 		this.birthday = birthday;
 		this.browser = browser;
+		this.photo=photo;
 	}
 
 	public String getUsername() {
@@ -54,6 +57,14 @@ public class UserAccount {
 
 	public void setBrowser(String browser) {
 		this.browser = browser;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public String getPasswd() {
+		return passwd;
 	}
 	
 }

@@ -10,7 +10,6 @@ public class Classroom {
 	public Classroom(){
 		
 		accounts= new ArrayList <UserAccount>();
-		accounts.add(new UserAccount("jhonny", "male","SIS", "O1/O1/2001", "HEY"));
 	}
 	
 	public boolean add(UserAccount newAccount) {
@@ -20,6 +19,19 @@ public class Classroom {
 		else
 			return false;
 	}
+	
+	public boolean chechUser(String usernm,String passwd,String gender,String major,String date,String brow, String photo) {
+		String[] elements= {usernm,passwd,photo,gender,major,date};
+
+		boolean empty=false;
+
+		for(int i=0;i<elements.length && !empty;i++) {
+			if(elements[i]=="")
+				empty=true;
+		}
+		
+		return empty;
+	}
 	 //TODO
 	public boolean remove(int index) {
 		return true;
@@ -27,5 +39,15 @@ public class Classroom {
 	
 	public List<UserAccount> getAccounts() {
 		return accounts;
+	}
+	
+	public UserAccount userExist(String usern) {
+		UserAccount found=null;
+		for(int i=0;i<accounts.size();i++) {
+			if(accounts.get(i).getUsername().equalsIgnoreCase(usern)) {
+				found=accounts.get(i);
+			}
+		}
+		return found;
 	}
 }
